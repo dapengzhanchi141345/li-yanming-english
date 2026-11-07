@@ -113,6 +113,12 @@ footer{text-align:center;padding:20px;color:#888;font-size:13px;margin-top:30px;
 <div style="background:#fffbe6;border-left:4px solid #f5a623;padding:10px;margin:12px 0;font-size:14px">📅 2026-10-26 升级 · 【情态+2026-10-26】shouldn't have done 本不该做却做了；could have done 本可以(未做)</div>
 
 <div style="background:#fffbe6;border-left:4px solid #f5a623;padding:10px;margin:12px 0;font-size:14px">📅 2026-10-27 升级 · 【被动+2026-10-27】be about to be done 即将被…；被动无"完成进行时"</div>
+
+<div style="background:#fffbe6;border-left:4px solid #f5a623;padding:10px;margin:12px 0;font-size:14px">📅 2026-11-02 升级 · 【代词+2026-11-02】it 可指代不定式/动名词：It is no use crying over spilt milk</div>
+
+<div style="background:#fffbe6;border-left:4px solid #f5a623;padding:10px;margin:12px 0;font-size:14px">📅 2026-11-03 升级 · 【易混+2026-11-03】luggage 不可数(用 a piece of)；goods 复数；furniture 不可数</div>
+
+<div style="background:#fffbe6;border-left:4px solid #f5a623;padding:10px;margin:12px 0;font-size:14px">📅 2026-11-06 升级 · 【词汇+2026-11-06】compel 强迫(及物)；compelling 引人注目的(形容词)，别混</div>
 </footer>
 
 <script>
@@ -130,17 +136,30 @@ const K=[
 document.getElementById("knowGrid").innerHTML=K.map(s=>`<div class="card"><h3>${s[0]}</h3><ul>${s[1].split(" · ").map(x=>`<li>${x}</li>`).join("")}</ul></div>`).join("");
 
 const WS=[
- ["apple","苹果"],["beautiful","美丽的"],["student","学生"],
- ["achieve","实现"],["beneficial","有益的"],["challenge","挑战"],
- ["diligent","勤奋的"],["emphasize","强调"],["frequent","频繁的"],
- ["genuine","真诚的"],["hypothesis","假设"],["incentive","激励"],
- ["justice","正义"],["knock","敲"],["luminous","发光的"],
+ ["apple","苹果","小学"],["beautiful","美丽的","小学"],["student","学生","小学"],
+ ["happy","高兴的","小学"],["family","家庭","小学"],["school","学校","小学"],
+ ["teacher","老师","小学"],["friend","朋友","小学"],["morning","早上","小学"],
+ ["achieve","实现","初中"],["beneficial","有益的","初中"],["challenge","挑战","初中"],
+ ["diligent","勤奋的","初中"],["emphasize","强调","初中"],["frequent","频繁的","初中"],
+ ["genuine","真诚的","初中"],["improve","改善/提高","初中"],["environment","环境","初中"],
+ ["celebrate","庆祝","初中"],["patient","耐心的(adj./n.病人)","初中"],["decision","决定","初中"],
+ ["experience","经历/经验","初中"],["habit","习惯","初中"],["encourage","鼓励","初中"],
+ ["justice","正义","初中"],["knock","敲","初中"],["luminous","发光的","初中"],
+ ["hypothesis","假设","高中"],["incentive","激励","高中"],
+ ["consequence","结果/后果","高中"],["significant","重要的/显著的","高中"],["phenomenon","现象","高中"],
+ ["attitude","态度","高中"],["approach","方法/途径","高中"],["appreciate","欣赏/感激","高中"],
+ ["available","可获得的","高中"],["concentrate","集中/专注","高中"],["determine","决定/确定","高中"],
+ ["evaluate","评估","高中"],["identity","身份","高中"],["influence","影响","高中"],
+ ["acquire","获得","四六级"],["analyze","分析","四六级"],["authentic","地道的/真实的","四六级"],
+ ["budget","预算","四六级"],["campaign","运动/活动","四六级"],["comprehensive","综合的","四六级"],
+ ["crucial","至关重要的","四六级"],["demonstrate","论证/演示","四六级"],["efficient","高效的","四六级"],
+ ["implement","实施/执行","四六级"],
 ];
 let ws=0,wt=0,wi=0;
 function wNext(){
   wt++;document.getElementById("wTotal").textContent=wt;
   const it=WS[wi];wi=(wi+1)%WS.length;
-  document.getElementById("wBox").innerHTML=`<div class="card"><span class="tag">默写</span><h3>${it[1]}</h3>
+  document.getElementById("wBox").innerHTML=`<div class="card"><span class="tag">默写 · ${it[2]}</span><h3>${it[1]}</h3>
   <input id="wIn" placeholder="写英文单词..." style="width:200px"> <button class="btn" onclick="wAns()">核对</button>
   <div class="out" id="wFb"></div></div>`;
   document.getElementById("wIn").onkeydown=e=>{if(e.key==="Enter")wAns()};
@@ -156,30 +175,33 @@ function wAns(){
 wNext();
 
 const GS=[
- ["She ___ to school every day.","goes"],
- ["I have lived here ___ 2010.","since"],
- ["He is ___ than his brother.","taller"],
- ["___ you finish the work?","Have"],
- ["The book ___ on the table is mine.","lying"],
+ ["She ___ to school every day.","goes","go|going|gone","一般现在时: 频率副词 every day + 三单动词加 -s"],
+ ["I have lived here ___ 2010.","since","for|at|in","现在完成时 + since 表'自…以来'(时间点)"],
+ ["He is ___ than his brother.","taller","more tall|tallest|tall","单音节形容词比较级: 加 -er, 不能 more tall"],
+ ["___ you ever been to Beijing?","Have","Did|Has|Were","have/has been to = 去过; ever 常与完成时连用"],
+ ["The book ___ on the table is mine.","lying","lay|lain|laid","现在分词作后置定语; lie 的现在分词是 lying, 过去分词是 lain"],
+ ["He suggested ___ the meeting early.","starting","to start|start|started","suggest doing sth, 不接 to do"],
+ ["Would you mind ___ the window?","closing","to close|close|closed","mind + doing, 客套'介意…吗'"],
+ ["It is no use ___ over spilt milk.","crying","cry|cried|to cry","It is no use doing sth, 固定结构"],
+ ["The problem ___ at the meeting yesterday.","was discussed","discussed|has discussed|discuss","被动语态: 物作主语 + be done, 过去时间用 was"],
+ ["___ he was young, he traveled a lot.","Although","Because|If|Since","although 引导让步状语从句'虽然…'"],
 ];
 let gs=0,gt=0,gi=0;
 function gNext(){
   gt++;document.getElementById("gTotal").textContent=gt;
   const it=GS[gi];gi=(gi+1)%GS.length;
-  const opts=Array.from(new Set([it[1],...["其他词池":"because","goes","before","lying","taller","since","Have"].slice(0,3).concat([it[1]])])).slice(0,4);
-  const all=["since","before","taller","Have","goes","lying","because"];
-  const choices=[...new Set([it[1],all[0],all[2],all[4]])].slice(0,4);
-  document.getElementById("gBox").innerHTML=`<div class="card"><span class="tag">语法</span><h3>It ___ since 2010</h3>
-  ${choices.map((o,i)=>`<button class="btn" onclick="gans(${i},'${o}')">${o}</button>`).join("")}
+  const opts=[it[1],...it[2].split("|")].sort(()=>Math.random()-0.5);
+  document.getElementById("gBox").innerHTML=`<div class="card"><span class="tag">语法</span><h3>${it[0]}</h3>
+  ${opts.map((o,i)=>`<button class="btn" onclick="gans(${i},'${o}')">${o}</button>`).join("")}
   <div class="out" id="gFb"></div></div>`;
+  window._gc=it[1];window._gx=it[3];
 }
 function gans(i,choice){
   const fb=document.getElementById("gFb");
-  const correct="since";
-  if(choice===correct){gs++;fb.textContent="✔ 正确: since (完成时 + since 时间点)";fb.style.color="var(--ok)";}
-  else{fb.textContent="✘ 答案: since";fb.style.color="var(--bad)";}
+  if(choice===window._gc){gs++;fb.textContent="✔ 正确: "+choice+"。"+window._gx;fb.style.color="var(--ok)";}
+  else{fb.textContent="✘ 答案: "+window._gc+"。"+window._gx;fb.style.color="var(--bad)";}
   document.getElementById("gScore").textContent=gs;
-  setTimeout(gNext,1500);
+  setTimeout(gNext,2500);
 }
 gNext();
 
@@ -198,26 +220,42 @@ document.getElementById("lBox").innerHTML=LS.map(l=>`<div class="card"><span cla
 </script>
 
 <div id="agent-panel" style="margin:20px auto;max-width:720px;border:2px solid #4a90d9;border-radius:12px;padding:16px;background:#f7fbff;font-family:system-ui">
-  <h3 style="margin:0 0 8px;color:#2c5d8f">🤖 通语者·英语专家团 · 智能体问答</h3>
-  <p style="font-size:13px;color:#555;margin:0 0 10px">点预设或直接输入问题，调用 通语者·英语专家团 的学科能力实时解答（在线时）。离线时显示"在线 AI 暂不可用，看站内题库"。</p>
+  <h3 style="margin:0 0 8px;color:#2c5d8f">🤖 通语者·英语专家团 · 智能体问答（本地题库模式）</h3>
+  <p style="font-size:13px;color:#555;margin:0 0 10px">本地题库模式（离线·零外链）：关键词匹配本站本地题库作答。在线 AI 问答待李老师定 key 策略后统一开通。</p>
   <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px"><button style="padding:6px 10px;border-radius:8px;border:1px solid #888;background:#fff;color:#333;cursor:pointer;font-size:12px" onclick="agentAsk('讲解 resilient 词义+造 3 句')">讲解 resilient 词义+造 </button><button style="padding:6px 10px;border-radius:8px;border:1px solid #888;background:#fff;color:#333;cursor:pointer;font-size:12px" onclick="agentAsk('It is I who am to blame 语法点')">It is I who am to </button><button style="padding:6px 10px;border-radius:8px;border:1px solid #888;background:#fff;color:#333;cursor:pointer;font-size:12px" onclick="agentAsk('一篇阅读理解逐句精读')">一篇阅读理解逐句精读</button>
     <button style="padding:6px 12px;border-radius:8px;border:1px solid #4a90d9;background:#4a90d9;color:#fff;cursor:pointer" onclick="agentAsk('')">问 通语者·英语专家团</button>
   </div>
-  <textarea id="agent-q" placeholder="输入问题，点按钮问 通语者·英语专家团..." style="width:100%;height:60px;padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px"></textarea>
-  <button style="margin-top:8px;padding:8px 16px;border-radius:8px;border:none;background:#2c8a3d;color:#fff;cursor:pointer;font-size:14px" onclick="agentAsk(document.getElementById('agent-q').value)">提问</button>
+  <textarea id="agent-q" placeholder="输入问题，匹配 通语者·英语专家团 本地题库..." style="width:100%;height:60px;padding:8px;border:1px solid #ccc;border-radius:8px;font-size:14px;box-sizing:border-box"></textarea>
+  <button style="margin-top:8px;padding:8px 16px;border-radius:8px;border:none;background:#2c8a3d;color:#fff;cursor:pointer;font-size:14px" onclick="agentAsk(document.getElementById('agent-q').value)">匹配本地题库</button>
   <div id="agent-a" style="margin-top:12px;padding:12px;background:#fff;border-left:4px solid #2c8a3d;border-radius:6px;font-size:14px;min-height:40px;white-space:pre-wrap;color:#333">（等待回答）</div>
   <script>
-  var AGENT_API = {{base:"https://api.agnes-k2.com/v1", key:"", model:"agnes-flash"}};
-  function agentAsk(q){{
-    if(!q) q=document.getElementById('agent-q').value;
-    if(!q){{document.getElementById('agent-a').textContent='请输入问题';return;}}
-    var a=document.getElementById('agent-a'); a.textContent='\u23F3 通语者·英语专家团 思考中...';
-    fetch(AGENT_API.base+'/chat/completions',{{method:'POST',headers:{{'Content-Type':'application/json','Authorization':'Bearer '+AGENT_API.key}},
-      body:JSON.stringify({{model:AGENT_API.model,messages:[{{role:'system',content:'你是通语者·英语专家团，全学段英语含听说读写。回答要专业、准确、可核查，口语化带大白话。'}},{{role:'user',content:q}}],temperature:0.3}})
-    .then(function(r){{return r.json();}}).then(function(d){{
-      a.textContent=(d.choices&&d.choices[0]&&d.choices[0].message)?d.choices[0].message.content:'（无返回）';
-    }}).catch(function(e){{a.textContent='\u26A0 在线 AI 暂不可用('+e.message+')，看站内题库或稍后再试。';}});
-  }}
+  // 本地题库模式: 离线·零外链·无 key。在线(key 注入)待李老师定 key 策略后统一切, 此处 AGENT_MODE 为切换点。
+  var AGENT_MODE="local";
+  var AGENT_KB=(typeof window.AGENT_KB==="object"&&window.AGENT_KB)?window.AGENT_KB:[];
+  var LOCAL_TIPS=["阅读先看题干关键词定位段落; 语法看句子成分(主谓一致/非谓语标志词)。", "写作先保句子结构(5要素)与时态一致, 再谈表达多样。"];
+  function _kbTokens(q){
+    var t=[];
+    (q.toLowerCase().match(/[a-z0-9]+/g)||[]).forEach(function(x){t.push(x);});
+    q.replace(/[^\u4e00-\u9fff]/g,'').split('').forEach(function(c){t.push(c);});
+    return t;
+  }
+  function agentAsk(q){
+    if(!q)q=document.getElementById('agent-q').value;
+    if(!q){document.getElementById('agent-a').textContent='请输入问题';return;}
+    document.getElementById('agent-q').value=q;
+    var a=document.getElementById('agent-a');
+    var uniq=Array.from(new Set(_kbTokens(q)));
+    var hits=AGENT_KB.map(function(it){
+      var hay=((it.q||"")+" "+(it.a||"")).toLowerCase();
+      var n=uniq.filter(function(t){return hay.indexOf(t)>-1;}).length;
+      return {s:n,it:it};
+    }).filter(function(x){return x.s>=Math.min(uniq.length,2);}).sort(function(x,y){return y.s-x.s;}).slice(0,3);
+    if(hits.length){
+      a.textContent="\u{1F4D6} 本地题库 · 离线（通语者·英语专家团 本地条目）\n\n"+hits.map(function(h){return "Q: "+h.it.q+"\nA: "+h.it.a;}).join("\n\n")+"\n\n（在线 AI 问答待李老师定 key 策略后开通）";
+    } else {
+      a.textContent="\u26A0\uFE0F 本地题库模式（离线）：未匹配到本地条目。在线 AI 问答待李老师定 key 策略后开通。\n学习提示：\n- "+LOCAL_TIPS.join("\n- ")+"\n并见站内【题库/知识】模块。";
+    }
+  }
   </script>
 </div>
 </body></html>
